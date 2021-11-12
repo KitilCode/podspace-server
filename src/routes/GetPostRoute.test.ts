@@ -9,7 +9,7 @@ import TestUtils from '../utils/TestUtils';
  *        npm run test GetPost
  * - Delete this comment.
  */
-describe.skip('GET /posts/:id', () => {
+describe('GET /posts/:id', () => {
   let post: PostDocument = null;
 
   beforeAll(async () => {
