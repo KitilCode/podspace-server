@@ -20,9 +20,9 @@ export default class GetPostRoute extends BaseRoute<PostDocument> {
        * - Fill in the path string with the appropriate path to this endpoint.
        * - Delete this comment.
        */
-      authenticated: false,
-      method: null,
-      path: '/'
+      authenticated: true,
+      method: RouteMethod.GET,
+      path: '/posts/:id'
     });
   }
 
@@ -52,10 +52,10 @@ export default class GetPostRoute extends BaseRoute<PostDocument> {
    */
   async content(req: GetPostRequest): Promise<PostDocument> {
     // TODO: (14.03) Get the post's id from the request parameters.
-
+    const { id } = req.params;
     // TODO: (14.03) Get the post with this id from our database.
-
+    const post: PostDocument = await Post.findById(id);
     // TODO: (14.03) Return the post!
-    return null;
+    return post;
   }
 }
